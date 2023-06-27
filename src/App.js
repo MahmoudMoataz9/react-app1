@@ -6,7 +6,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       message: "",
-      title: ["My name is markiplier"],
+      title: ["My name is jakc"],
     };
   }
   render() {
