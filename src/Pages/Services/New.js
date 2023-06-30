@@ -45,48 +45,9 @@ export class New extends React.Component {
                 <TableCell component="th" scope="row">
                   {relic.name}
                 </TableCell>
-                {relic.rewards[0] ? (
-                  <TableCell align="right">
-                    {relic.rewards[0].item.name}
-                  </TableCell>
-                ) : (
-                  <TableCell>none</TableCell>
-                )}
-                {relic.rewards[1] ? (
-                  <TableCell align="right">
-                    {relic.rewards[1].item.name}
-                  </TableCell>
-                ) : (
-                  <TableCell>none</TableCell>
-                )}
-                {relic.rewards[2] ? (
-                  <TableCell align="right">
-                    {relic.rewards[2].item.name}
-                  </TableCell>
-                ) : (
-                  <TableCell>none</TableCell>
-                )}
-                {relic.rewards[3] ? (
-                  <TableCell align="right">
-                    {relic.rewards[3].item.name}
-                  </TableCell>
-                ) : (
-                  <TableCell>none</TableCell>
-                )}
-                {relic.rewards[4] ? (
-                  <TableCell align="right">
-                    {relic.rewards[4].item.name}
-                  </TableCell>
-                ) : (
-                  <TableCell>none</TableCell>
-                )}
-                {relic.rewards[5] ? (
-                  <TableCell align="right">
-                    {relic.rewards[5].item.name}
-                  </TableCell>
-                ) : (
-                  <TableCell>none</TableCell>
-                )}
+                {relic.rewards[0]? relic.rewards.sort((a, b) => a.chance - b.chance).map((item)=> {
+                  return <TableCell>{item.item.name}</TableCell>
+                }) : <TableCell>none</TableCell>}
               </TableRow>
             ))}
           </TableBody>
