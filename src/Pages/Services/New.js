@@ -26,12 +26,12 @@ export class New extends React.Component {
           <TableHead>
             <TableRow>
               <TableCell>Relic Name</TableCell>
-              <TableCell align="right">Common</TableCell>
-              <TableCell align="right">Common</TableCell>
-              <TableCell align="right">Common</TableCell>
-              <TableCell align="right">Uncommon</TableCell>
-              <TableCell align="right">Uncommon</TableCell>
               <TableCell align="right">Rare</TableCell>
+              <TableCell align="right">Uncommon</TableCell>
+              <TableCell align="right">Uncommon</TableCell>
+              <TableCell align="right">Common</TableCell>
+              <TableCell align="right">Common</TableCell>
+              <TableCell align="right">Common</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
