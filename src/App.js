@@ -1,42 +1,51 @@
 import React from "react";
-import { Button, TextField, Typography } from "@mui/material";
+
+import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { Home } from "./Pages/Home";
+import { About } from "./Pages/About";
+import { Layout } from "./Layout/Layout";
+import { Contact } from "./Pages/Contact";
+import { Services } from "./Pages/Services";
+import { NoMatch } from "./Pages/NoMatch";
+import { Welcome } from "./Layout/Welcome";
+import { Old } from "./Pages/Services/Old";
+import { New } from "./Pages/Services/New";
+import { Admin } from "./Pages/Contact/Admin";
+import { ContactDetails } from "./Pages/Contact/ContactDetails";
 
 class App extends React.Component {
   constructor(props) {
     super(props);
+<<<<<<< Updated upstream
     this.state = {
       message: "",
       title: ["My name is jakc"],
     };
+=======
+    this.state = {};
+>>>>>>> Stashed changes
   }
+
   render() {
     return (
-      <div style={{ padding: "20px" }}>
-        {" "}
-        <Typography variant="h2">
-          {" "}
-          {this.state.title.map((curr, index) => {
-            return <Typography variant="h2">{curr}</Typography>;
-          })}{" "}
-        </Typography>
-        <TextField
-          id="standard-basic"
-          label="Standard"
-          variant="standard"
-          onChange={(e) => {
-            this.setState({ message: e.target.value });
-          }}
-        />
-        <Button
-          style={{ top: "12px" }}
-          variant="outlined"
-          onClick={() => {
-            this.setState({ title: [...this.state.title, this.state.message] });
-          }}
-        >
-          Text
-        </Button>
-      </div>
+      <>
+        <Layout />
+        <Routes>
+          <Route path="/" element={<Welcome />} />
+          <Route path="home" element={<Home />} />
+          <Route path="about" element={<About />} />
+          <Route path="contact" element={<Contact />}>
+            <Route path="admin" element={<Admin />} />
+            <Route path=":userId" element={<ContactDetails />} />
+          </Route>
+          <Route path="services" element={<Services />}>
+            <Route index element={<Old />} />
+            <Route path="old" element={<Old />} />
+            <Route path="new" element={<New />} />
+          </Route>
+          <Route path="*" element={<NoMatch />} />
+        </Routes>
+      </>
     );
   }
 }

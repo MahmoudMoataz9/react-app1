@@ -8,6 +8,8 @@ import {
   createTheme,
   responsiveFontSizes,
 } from "@mui/material/styles";
+import { BrowserRouter } from "react-router-dom";
+
 const themeTemplate = responsiveFontSizes(
   createTheme({
     palette: {
@@ -24,7 +26,9 @@ const themeTemplate = responsiveFontSizes(
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <ThemeProvider theme={themeTemplate}>
-    <App />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </ThemeProvider>
 );
 
