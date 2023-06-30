@@ -45,7 +45,7 @@ export class New extends React.Component {
                 <TableCell component="th" scope="row">
                   {relic.name}
                 </TableCell>
-                {relic.rewards[0]? relic.rewards.sort((a, b) => a.chance - b.chance).map((item)=> {
+                {relic.rewards? relic.rewards.sort((a, b) => a.chance - b.chance).map((item)=> {
                   return <TableCell>{item.item.name}</TableCell>
                 }) : <TableCell>none</TableCell>}
               </TableRow>
