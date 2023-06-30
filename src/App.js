@@ -16,14 +16,7 @@ import { ContactDetails } from "./Pages/Contact/ContactDetails";
 class App extends React.Component {
   constructor(props) {
     super(props);
-<<<<<<< Updated upstream
-    this.state = {
-      message: "",
-      title: ["My name is jakc"],
-    };
-=======
     this.state = {};
->>>>>>> Stashed changes
   }
 
   render() {
