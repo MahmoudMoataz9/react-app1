@@ -21,11 +21,9 @@ export class New extends React.Component {
       rowsPerPage: 10,
     };
   }
-
   handleChangePage(event, newPage) {
     this.setState({ currentPage: newPage });
   }
-
   handleChangeRowsPerPage(event) {
     this.setState({
       currentPage: 0,
@@ -42,6 +40,8 @@ export class New extends React.Component {
         ? item
         : item.name.toLocaleLowerCase().includes(this.state.search);
     }).slice(startIndex, endIndex);
+
+    const emptyRows = rowsPerPage - Math.min(rowsPerPage, relics.length - currentPage * rowsPerPage);
 
     return (
       <>
@@ -85,15 +85,20 @@ export class New extends React.Component {
                   )}
                 </TableRow>
               ))}
+              {emptyRows > 0 && (
+              <TableRow style={{ height: 53 * emptyRows }}>
+                <TableCell colSpan={3} />
+              </TableRow>
+            )}
           </TableBody>
         </Table>
         <TablePagination
-          component="TableContainer"
+          component="div"
           count={relics.length}
           page={currentPage}
           rowsPerPage={rowsPerPage}
           onPageChange={(event, newPage) => this.handleChangePage(event, newPage)}
-          onChangeRowsPerPage={(event) => this.handleChangeRowsPerPage(event)}
+          onRowsPerPageChange={(event) => this.handleChangeRowsPerPage(event)}
         />
       </TableContainer>
       </>
